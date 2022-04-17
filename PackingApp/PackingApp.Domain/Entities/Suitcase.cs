@@ -23,6 +23,10 @@ namespace PackingApp.Domain.Entities
             _location = location;
         }
 
+        private Suitcase()
+        {
+        }
+
         public void AddSuitcaseItem(SuitcaseItem suitcaseItem)
         {
             var alreadyPacked = _clothes.Any(c => c.Name == suitcaseItem.Name);

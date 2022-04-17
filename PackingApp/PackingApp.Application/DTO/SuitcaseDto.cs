@@ -8,7 +8,7 @@ namespace PackingApp.Application.DTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Location Location { get; set; }
+        public LocationDto Location { get; set; }
         public IEnumerable<SuitcaseItemDto> SuitcaseItems { get; set; }
     }
 }

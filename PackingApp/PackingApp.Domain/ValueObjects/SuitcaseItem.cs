@@ -6,10 +6,9 @@ namespace PackingApp.Domain.ValueObjects
     {
         public string Name { get; }
         public int Quantity { get; }
-        public bool IsAlreadyPacked { get; }
         public bool IsPacked { get; init; }
 
-        public SuitcaseItem(string name, int quantity, bool isAlreadyPacked = false)
+        public SuitcaseItem(string name, int quantity, bool isPacked = false)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -18,7 +17,7 @@ namespace PackingApp.Domain.ValueObjects
 
             Name = name;
             Quantity = quantity;
-            IsAlreadyPacked = isAlreadyPacked;
+            IsPacked = isPacked;
         }
     }
 }

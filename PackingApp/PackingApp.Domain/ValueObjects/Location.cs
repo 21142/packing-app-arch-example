@@ -6,11 +6,11 @@ namespace PackingApp.Domain.ValueObjects
     {
         public static Location CreateLocationFromString(string address)
         {
-            var splitStringByComma = address.Split(',');
+            var splitStringByComma = address.Split(", ");
             return new Location(splitStringByComma.First(), splitStringByComma.Last());
         }
 
-        public override string ToString() => $"{Country},{City}";
+        public override string ToString() => $"{Country}, {City}";
 
     }
 }
