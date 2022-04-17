@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace PackingApp.Domain.Factories
 {
-    public class SuitcaseFactory : ISuitcaseFactory
+    public sealed class SuitcaseFactory : ISuitcaseFactory
     {
         private readonly IEnumerable<ISuitcaseItemsPolicy> _policies;
 

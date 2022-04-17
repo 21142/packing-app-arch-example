@@ -1,4 +1,6 @@
-﻿namespace PackingApp.Domain.Exceptions
+﻿using PackingApp.Shared.Abstractions.Exceptions;
+
+namespace PackingApp.Domain.Exceptions
 {
     public class InvalidTravelTimeException : BaseException
     {

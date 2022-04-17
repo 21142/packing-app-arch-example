@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PackingApp.Domain.Exceptions
+namespace PackingApp.Shared.Abstractions.Exceptions
 {
     public abstract class BaseException : Exception
     {
