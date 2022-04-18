@@ -4,6 +4,6 @@ namespace PackingApp.Shared.Abstractions.Commands
 {
     public interface ICommandDispatcher
     {
-        Task DispatchAsyns<TCommand>(TCommand command) where TCommand : class, ICommand;
+        Task DispatchAsync<TCommand>(TCommand command) where TCommand : class, ICommand;
     }
 }
