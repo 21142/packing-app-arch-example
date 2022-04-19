@@ -20,7 +20,7 @@ namespace PackingApp.WebAPI.Controllers
             _queryDispatcher = queryDispatcher;
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{Id:guid}")]
         public async Task<ActionResult<SuitcaseDto>> Get([FromRoute] GetSuitcase query)
         {
             var result = await _queryDispatcher.QueryAsync(query);
@@ -41,28 +41,28 @@ namespace PackingApp.WebAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = command.Id }, null);
         }
 
-        [HttpPut("{packingListId}/items")]
+        [HttpPut("{suitcaseId}/items")]
         public async Task<IActionResult> Put([FromBody] AddSuitcaseItem command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return Ok();
         }
 
-        [HttpPut("{packingListId:guid}/items/{name}/pack")]
+        [HttpPut("{suitcaseId:guid}/items/{name}/pack")]
         public async Task<IActionResult> Put([FromBody] PackSuitcaseItem command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return Ok();
         }
 
-        [HttpDelete("{packingListId:guid}/items/{name}")]
+        [HttpDelete("{suitcaseId:guid}/items/{name}")]
         public async Task<IActionResult> Delete([FromBody] RemoveSuitcaseItem command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return Ok();
         }
 
-        [HttpDelete("{id:guid}")]
+        [HttpDelete("{Id:guid}")]
         public async Task<IActionResult> Delete([FromBody] DeleteSuitcase command)
         {
             await _commandDispatcher.DispatchAsync(command);

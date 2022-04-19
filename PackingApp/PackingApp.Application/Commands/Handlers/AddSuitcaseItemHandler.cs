@@ -25,6 +25,7 @@ namespace PackingApp.Application.Commands.Handlers
             }
 
             var suitcaseItem = new SuitcaseItem(name, quantity);
+            suitcase.AddSuitcaseItem(suitcaseItem);
 
             await _repository.UpdateAsync(suitcase);
         }

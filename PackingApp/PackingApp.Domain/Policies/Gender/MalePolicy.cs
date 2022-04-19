@@ -7,9 +7,7 @@ namespace PackingApp.Domain.Policies.Gender
     public class MalePolicy : ISuitcaseItemsPolicy
     {
         public bool IsAppropriate(PolicyData policyData)
-        {
-            throw new NotImplementedException();
-        }
+            => policyData.Gender is Enums.Gender.Male;
 
         public IEnumerable<SuitcaseItem> PrepareSuitcase(PolicyData policyData)
             => new List<SuitcaseItem>

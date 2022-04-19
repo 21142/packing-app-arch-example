@@ -7,6 +7,7 @@ using PackingApp.Infrastructure.Persistence;
 using PackingApp.Infrastructure.Repositories;
 using PackingApp.Infrastructure.Services;
 using PackingApp.Shared.Implementations.Queries;
+using PackingApp.Shared.Options;
 
 namespace PackingApp.Infrastructure
 {
@@ -16,9 +17,11 @@ namespace PackingApp.Infrastructure
         {
             services.AddScoped<ISuitcaseRepository, SuitcaseRepository>();
             services.AddScoped<ISuitcaseReadService, SuitcaseReadService>();
-            
-            services.AddDbContext<ReadDbContext>(c => c.UseSqlServer(@"Server=(localdb)\\RecruitmentTestDb;Database=Test"));
-            services.AddDbContext<WriteDbContext>(c => c.UseSqlServer(@"Server=(localdb)\\RecruitmentTestDb;Database=Test"));
+
+            var mssqlOptions = configuration.GetOptions<MssqlOptions>("Mssql");
+            services.AddDbContext<ReadDbContext>(c => c.UseSqlServer(mssqlOptions.ConnectionString));
+            services.AddDbContext<WriteDbContext>(c => c.UseSqlServer(mssqlOptions.ConnectionString));
+
             services.AddQueries();
             services.AddSingleton<ITemperatureService, DummyTemperatureService>();
 

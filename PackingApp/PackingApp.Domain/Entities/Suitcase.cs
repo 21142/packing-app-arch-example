@@ -16,6 +16,12 @@ namespace PackingApp.Domain.Entities
 
         private readonly LinkedList<SuitcaseItem> _clothes = new();
 
+        private Suitcase(SuitcaseId id, SuitcaseName name, Location location, LinkedList<SuitcaseItem> clothes)
+            : this(id, name, location)
+        {
+            _clothes = clothes;
+        }
+
         internal Suitcase(SuitcaseId id, SuitcaseName name, Location location)
         {
             Id = id;

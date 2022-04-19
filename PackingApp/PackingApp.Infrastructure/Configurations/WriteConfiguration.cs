@@ -44,7 +44,7 @@ namespace PackingApp.Infrastructure.Configurations
             builder.Property(i => i.Name);
             builder.Property(i => i.Quantity);
             builder.Property(i => i.IsPacked);
-            builder.ToTable("Suitcases");
+            builder.ToTable("SuitcaseItems");
         }
     }
 }

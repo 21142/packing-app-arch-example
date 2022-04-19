@@ -9,7 +9,7 @@ namespace PackingApp.Infrastructure.Persistence
     {
         public DbSet<Suitcase> Suitcases { get; set; }
 
-        public WriteDbContext(DbContextOptions<ReadDbContext> options) : base(options)
+        public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
         {
         }
 
@@ -20,8 +20,6 @@ namespace PackingApp.Infrastructure.Persistence
             var configuration = new WriteConfiguration();
             modelBuilder.ApplyConfiguration<Suitcase>(configuration);
             modelBuilder.ApplyConfiguration<SuitcaseItem>(configuration);
-            base.OnModelCreating(modelBuilder);
-
         }
     }
 }
