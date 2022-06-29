@@ -13,7 +13,7 @@ variables:
   buildPlatform: "Any CPU"
   buildConfiguration: 'Release'
   solution: '**/21142/packing-app-arch-example/PackingApp/PackingApp.sln'
-  project: '**/21142/packing-app-arch-example/PackingApp/PackingApp.csproj'
+  projects: '**/*.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -42,7 +42,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(project)'
+    projects: '$(projects)'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: false
 
